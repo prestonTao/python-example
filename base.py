@@ -34,3 +34,23 @@ a = {'person':{'name':'tao','age':18}}
 for one in a:
     print(one)
     print(a.get(one))
+
+print('------------------------------')
+###############################################################
+# yield表达式写斐波那契數列
+
+def fab(max): 
+    n, a, b = 0, 0, 1
+    for i in xrange(max):
+        yield b
+        a, b = b, a + b
+
+for i in fab(5):
+    print i
+
+
+
+
+
+
+

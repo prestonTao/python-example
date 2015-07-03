@@ -42,8 +42,8 @@ b.foo()
 
 class Base_b():
     name = "tao"
-    def __init__(self, *args):
-        self.age = 18
+    def __init__(self, age):
+        self.age = age
     def foo(self):
         print self.name,self.age
 
@@ -53,16 +53,26 @@ bb.foo()
 print '###############################################################'
 
 def excption(method):
-    try:
-        result = method()
-        if result :
-            return result
-    except Exception,e:
-        print e
-        return e
+    def wrapper(self):
+        try:
+            return method()
+        except Exception,e:
+            print e
+            return e
+    return wrapper
 
 @excption
 def exportE():
     print 'tao'
 
 # exportE()
+
+
+print '###############################################################'
+
+
+print 3**3*2
+
+
+
+
